@@ -1,0 +1,31 @@
+{
+  "name": "node-red-contrib-neo4j",
+  "version": "0.0.1",
+  "description": "Node-RED nodes for Neo4j",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/74Labs/node-red-contrib-neo4j.git"
+  },
+  "keywords": [
+    "node-red",
+    "neo4j"
+  ],
+  "node-red": {
+    "nodes": {
+      "neo4j": "./neo4j.js"
+    }
+  },
+  "author": "Tom Stanczyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/74Labs/node-red-contrib-neo4j/issues"
+  },
+  "homepage": "https://github.com/74Labs/node-red-contrib-neo4j#readme",
+  "dependencies": {
+    "neo4j-driver": "^1.0.5"
+  }
+}

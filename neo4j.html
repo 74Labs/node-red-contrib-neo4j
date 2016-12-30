@@ -1,0 +1,100 @@
+<script type="text/javascript">
+    RED.nodes.registerType('neo4j-conn', {
+        category: 'config',
+        defaults: {
+            name: {
+                value: "Neo4j",
+                required: true
+            },
+            url: {
+                value: "localhost:7687",
+                required: true
+            },
+            username: {
+                value: "",
+                required: false
+            },
+            password:
+              value: "",
+              required: false
+        },
+        inputs: 0,
+        outputs: 0,
+        label: function() {
+            return this.name || "Neo4j";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="neo4j-conn">
+    <div class="form-row">
+        <label for="node-config-input-name">
+            <i class="icon-bookmark"></i>
+            Name</label>
+        <input type="text" id="node-config-input-name"/>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-url">
+            <i class="fa fa-fw fa-link"></i>
+            Bolt Endpoint URL</label>
+        <input type="text" id="node-config-input-url"/>
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('neo4j', {
+        category: 'storage',
+        color: '#FFCC66',
+        icon: 'neo4j.png',
+        defaults: {
+            name: {
+                value: ""
+            },
+            neo4j: {
+                type: "neo4j-conn"
+            },
+            cypher: {
+                type: ""
+            },
+            streaming: {
+                type: "boolean"
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        label: function() {
+            return this.name || "neo4j";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="neo4j">
+    <div class="form-row">
+        <label for="node-input-name">
+            <i class="icon-tag"></i>
+            Name</label>
+        <input type="text" id="node-input-name" placeholder="Name"/>
+    </div>
+    <div class="form-row">
+        <label for="node-input-neo4j">
+            <i class="fa fa-fw fa-database"></i>
+            Connection</label>
+        <input type="text" id="node-input-neo4j"/>
+    </div>
+    <div class="form-row">
+        <label for="node-input-straming">
+            <i class="fa fa-fw fa-stream"></i>
+            Streaming</label>
+        <input type="text" id="node-input-streaming"/>
+    </div>
+    <div class="form-row">
+        <label for="node-input-cypher">
+            <i class="fa fa-fw fa-wrench"></i>
+            Cypher</label>
+        <textarea rows="20" style="width: 100%" id="node-input-cypher"></textarea>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="neo4j">
+    <p>A node that communicate with Neo4j over Bolt protocol.</p>
+</script>
